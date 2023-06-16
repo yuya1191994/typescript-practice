@@ -3,25 +3,17 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  type TypeA = {
-    str: string
-    num: number
+  type CustomType<T> = {
+    val: T
   }
 
-  type TypeB = {
-    str: string
-    bool: boolean
+  const strObj: CustomType<string> = {
+    val: "A"
   }
 
-  type TypeC = TypeA & TypeB
-
-  const obj: TypeC = {
-    str: "A",
-    num: 10,
-    bool: false
+  const numObj: CustomType<number> = {
+    val: 10
   }
-
-  console.log(obj)
   
   return (
     <div className="App">
