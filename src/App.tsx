@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
@@ -20,7 +20,13 @@ function App() {
     errorMsg: null,
     body: {}
   }
-  
+
+  const [str, setStr] = useState<string>("a")  
+
+  const onClickAction = () => {
+    setStr("b")
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -37,6 +43,8 @@ function App() {
           Learn React
         </a>
       </header>
+      <button onClick={onClickAction}>ボタン</button>
+      <div style={{backgroundColor:"white"}}>{str}</div>
     </div>
   );
 }
