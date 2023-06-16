@@ -3,6 +3,26 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  type TypeA = {
+    str: string
+    num: number
+  }
+
+  type TypeB = {
+    str: string
+    bool: boolean
+  }
+
+  type TypeC = TypeA & TypeB
+
+  const obj: TypeC = {
+    str: "A",
+    num: 10,
+    bool: false
+  }
+
+  console.log(obj)
+  
   return (
     <div className="App">
       <header className="App-header">
