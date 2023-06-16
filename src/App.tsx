@@ -3,16 +3,22 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  type CustomType<T> = {
-    val: T
+  type ApiResponse = {
+    statusCode: number;
+    errorMsg: string|null;
+    body: object
   }
 
-  const strObj: CustomType<string> = {
-    val: "A"
+  const strObj: ApiResponse = {
+    statusCode: 404,
+    errorMsg: "page not found.",
+    body: {}
   }
 
-  const numObj: CustomType<number> = {
-    val: 10
+  const numObj: ApiResponse = {
+    statusCode: 200,
+    errorMsg: null,
+    body: {}
   }
   
   return (
