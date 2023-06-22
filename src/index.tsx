@@ -12,12 +12,9 @@ interface User {
   }
 }
 
-let user: User
+function processUser(user?: User) {
+  console.log(user!.name)
+}
 
-user = {name: 'Yuya', sotial: {facebook: true, twitter: true}}
 
-console.log(user)
-
-user = {name: 'Yuya'}
-
-console.log(user.sotial?.facebook)
+processUser(undefined)
