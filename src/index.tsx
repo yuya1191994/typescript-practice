@@ -6,15 +6,31 @@ render(<App />, rootElement)
 
 interface User {
   name: string
-  sotial?: {
-    facebook: boolean
-    twitter: boolean
-  }
+  age: number
+  email: string
 }
 
-function processUser(user?: User) {
-  console.log(user!.name)
+type UserKey = keyof User
+
+const key1: UserKey =  'name'
+const key2: UserKey =  'age'
+const key3: UserKey =  'email'
+// compile error
+// const key4: UserKey =  'hoge'
+
+function getProperty<T, K extends keyof T>(obj: T, key:K): T[K] {
+  return obj[key]
 }
 
+const user: User = {
+  name: 'Takuya',
+  age: 36,
+  email: 'test@example.com'
+}
 
-processUser(undefined)
+const userName = getProperty(user, 'name')
+console.log(userName)
+
+// compile error
+// const userGender = getPropety(user, 'gender')
+// console.log(userGender)
