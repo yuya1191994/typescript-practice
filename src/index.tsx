@@ -1,6 +1,6 @@
 import { render } from "react-dom";
 import { App } from "./components/App";
-import { Fuga, Hoge } from "./types/Types";
+import type { Fuga, Hoge } from "./types/Types";
 
 const rootElement = document.getElementById('root')
 render(<App />, rootElement)
