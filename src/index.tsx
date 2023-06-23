@@ -1,10 +1,11 @@
 import { render } from "react-dom";
 import { App } from "./components/App";
+import { Fuga, Hoge } from "./types/Types";
 
 const rootElement = document.getElementById('root')
 render(<App />, rootElement)
 
-interface User {
+type User = {
   name: string
   age: number
   email: string
@@ -34,3 +35,6 @@ console.log(userName)
 // compile error
 // const userGender = getPropety(user, 'gender')
 // console.log(userGender)
+
+let hoge: Hoge = {name: "aaa"}
+let fuga: Fuga = {index: 1}
