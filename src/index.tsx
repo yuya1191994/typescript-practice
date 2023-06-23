@@ -49,3 +49,25 @@ type ReadonlyUser = {
 let piyopiyo: ReadonlyUser = {name: "piyopiyo"}
 // compile error
 // piyopiyo.name = "hoge"
+
+function promiseFunc(msg: string): Promise<{success: string}> {
+  console.log("promiseFunc")
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve({success: msg})
+    }, 3000)
+  })
+}
+
+async function asyncFunc(msg: string): Promise<string> {
+  console.log("asyncFunc")
+  const result = await promiseFunc(msg)
+  return `result: ${result.success}`
+}
+
+(async () => {
+  const result = await asyncFunc("asyncFunc()で呼び出し")
+  console.log(result)
+})()
+
+asyncFunc(".then()構文で呼び出し").then(result => console.log(result))
