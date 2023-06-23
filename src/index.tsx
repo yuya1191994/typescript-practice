@@ -38,3 +38,14 @@ console.log(userName)
 
 let hoge: Hoge = {name: "aaa"}
 let fuga: Fuga = {index: 1}
+
+let piyo: Readonly<User> = {name: "piyo", age:20, email:"piyo@piyo"}
+// compile error
+// piyo.name = "piyopiyo"
+
+type ReadonlyUser = {
+  readonly name: string
+}
+let piyopiyo: ReadonlyUser = {name: "piyopiyo"}
+// compile error
+// piyopiyo.name = "hoge"
